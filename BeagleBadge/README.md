@@ -57,28 +57,28 @@ cd /sys/bus/iio/devices/iio\:device1
 cat in_accel_x_raw in_accel_y_raw in_accel_z_raw
 
 #### 🎨电量计 测试
-# 读取电池电压
+##### 读取电池电压
 i2cget -y 1 0x55 0x08 w
 
-# 读取剩余容量
+##### 读取剩余容量
 i2cget -y 1 0x55 0x10 w
 
-# 读取电池电流
+##### 读取电池电流
 i2cget -y 1 0x55 0x14 w
 
 #### 🎨Grove UART 测试
-# UART
+##### UART
 minicom -D /dev/ttyS5 -b 9600
 
 #### 🎨mikroBUS 测试
-# UART
+##### UART
 minicom -D /dev/ttyS4 -b 9600
-# ADC
+##### ADC
 cd /sys/bus/iio/devices/iio\:device2
 
 cat ./in_voltage1_raw
 
-#PWM
+##### PWM
 cd /sys/class/pwm/pwmchip0/
 
 echo 0 > ./export
@@ -91,17 +91,17 @@ echo 1 > pwm0/enable
 
 echo 0 > pwm0/enable
 
-# GPIO
+##### GPIO
 cd /sys/class/gpio/
 echo 603 > ./export
 echo out > ./gpio603/direction
 echo 1 > ./gpio603/value
 
 #### 🎨QWIIC 测试
-# J6
+##### J6
 i2cdetect  -r -y 2
 
-# J7
+##### J7
 i2cdetect  -r -y 3
 
 
@@ -115,12 +115,13 @@ echo hh > ./eeprom
 dmesg | grep -i eeprom
 
 #### 🎨OSPI 测速
-#读测试
+##### 读测试
 dd if=/dev/mtdblock5 of=/tmp/test_file bs=1M count=10 oflag=direct
-#写测试
+##### 写测试
 dd if=/dev/zero of=/dev/mtdblock5 bs=1M count=10 oflag=direct
 
 #### 🎨GPIO 测试
 ./test_gpio.sh 0
+
 ./test_gpio.sh 1
 
