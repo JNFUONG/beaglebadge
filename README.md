@@ -123,3 +123,33 @@ dd if=/dev/zero of=/dev/mtdblock5 bs=1M count=10 oflag=direct
 ./test_gpio.sh 0
 
 ./test_gpio.sh 1
+
+
+#### 创建服务：sudo nano /etc/systemd/system/re_test.service
+[Unit]
+
+Description=Hardware Test Suite
+
+After=multi-user.target
+
+[Service]
+
+Type=simple
+
+ExecStart=/root/beaglebadge/scripts/re_test
+
+WorkingDirectory=/root/beaglebadge/scripts
+
+Restart=no
+
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
+##### sudo systemctl enable re_test.service   # 使能服务
+##### sudo systemctl start re_test.service    # 开启服务
+##### sudo systemctl stop re_test.service     # 停止服务
+
+
+
