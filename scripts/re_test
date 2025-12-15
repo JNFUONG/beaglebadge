@@ -7,7 +7,7 @@ do
 echo "开始运行测试脚本..."
 echo "=================================="
 echo ""
-./buzzer_test
+#./buzzer_test
 echo "=================================="
 echo ""
 ./epaper_test
