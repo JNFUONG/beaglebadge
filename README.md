@@ -145,8 +145,8 @@ dd if=/dev/zero of=/dev/mtdblock5 bs=1M count=10 oflag=direct
 ./test_gpio.sh 1
 
 ### 开机自运行脚本测试
-1. 创建服务：sudo nano /etc/systemd/system/re_test.service
-2. 复制如下代码
+#### 1. 创建服务：sudo nano /etc/systemd/system/re_test.service
+#### 2. 复制如下代码
 [Unit]
 
 Description=Hardware Test Suite
@@ -168,7 +168,7 @@ User=root
 [Install]
 WantedBy=multi-user.target
 
-3. 运行如下指令
+#### 3. 运行如下指令
 sudo systemctl enable re_test.service   # 使能服务
 
 sudo systemctl start re_test.service    # 开启服务
