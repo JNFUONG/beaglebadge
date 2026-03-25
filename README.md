@@ -40,6 +40,7 @@ Restart=no
 User=root
 
 [Install]
+
 WantedBy=multi-user.target
 
 #### 3. 运行如下指令
